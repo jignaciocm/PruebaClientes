@@ -25,14 +25,14 @@ public class Menu {
 	private String fileName1 = "DBClientes.csv";
 	
 	public void iniciarMenu() {
-		System.out.println("----MENU PRINCIPAL----");
+		System.out.println("---------- SISTEMA CLIENTES ----------");
 		System.out.println("1. Listar Clientes");
 		System.out.println("2. Agregar Clientes");
 		System.out.println("3. Editar Clientes");
 		System.out.println("4. Importar Datos");
 		System.out.println("5. Exportar Datos");
-		System.out.println("6. Terminar Programa");
-		System.out.println("----FINAL MENU----");
+		System.out.println("6. Salir");
+		System.out.println("--------------------------------------");
 		System.out.println("Ingrese una opción");
 		
 		int opcion = scInt.nextInt();
@@ -87,8 +87,8 @@ public class Menu {
 		
 		String runCliente="";
 		do {
-			
-			System.out.println("Ingrese el RUN del cliente Ej 27011011-1");
+			System.out.println("-------------Crear Cliente-------------");
+			System.out.println("Ingrese RUN del cliente:");
 			runCliente = sc.nextLine();
 			if (Utilidad.validaRut(runCliente)) {
 				System.out.println("Run ingresado es correcto");
@@ -98,13 +98,13 @@ public class Menu {
 			
 		} while (!Utilidad.validaRut(runCliente));
 		
-		System.out.println("Ingrese el nombre del cliente");
+		System.out.println("Ingrese Nombre del Cliente");
 		String nombreCliente = sc.nextLine();
-		System.out.println("Ingrese el apellido del Cliente");
+		System.out.println("Ingrese Apellido del Cliente");
 		String apellidoCliente = sc.nextLine();
-		System.out.println("Ingrese los años como cliente");
+		System.out.println("Ingrese años como cliente");
 		String aniosCliente = sc.nextLine();
-
+		System.out.println("-------------------------------------");
 		
 		Cliente cliente = new Cliente(runCliente,nombreCliente,apellidoCliente,aniosCliente,CategoriaEnum.ACTIVO);
 		
@@ -121,9 +121,9 @@ public class Menu {
 				
 				String opcion = "";
 				do  {	
-				System.out.println("¿Qué desea hacer?:");
+				System.out.println("Seleccione que desea hacer: ");
 				System.out.println("1. Editar datos del cliente");
-				System.out.println("2. Editar estado de cliente");
+				System.out.println("2. Cambiar el estado de cliente");
 				System.out.println("0. Retornar al menu anterior");
 				opcion = sc.nextLine();
 				

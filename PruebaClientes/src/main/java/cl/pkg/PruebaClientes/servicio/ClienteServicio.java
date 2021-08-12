@@ -29,9 +29,15 @@ public class ClienteServicio {
 		
 		if (listaClientes != null && listaClientes.size() != 0) {
 			for (Cliente clienteTemp : listaClientes) {
-				System.out.println(clienteTemp.toString());
+				System.out.println("-------------Datos del Cliente-------------");
+				System.out.println("RUN del Cliente: "+clienteTemp.getRunCliente());
+				System.out.println("Nombre del Cliente: "+clienteTemp.getNombreCliente());
+				System.out.println("Apellido del Cliente: "+clienteTemp.getApellidoCliente());
+				System.out.println("Años como Cliente: "+clienteTemp.getAniosCliente());
+				System.out.println("Categoria del Cliente: "+clienteTemp.getNombreCategoria());
+				System.out.println("");
+				System.out.println("-------------------------------------------");
 			}
-			System.out.println("**********************");
 		} else {
 			System.out.println("\nNo se han encontrado clientes o no existen clientes");
 		}
@@ -47,7 +53,7 @@ public class ClienteServicio {
 			listaClientes.add(cliente);
 		}
 		
-		System.out.println("******Cliente agregado*******");
+		System.out.println("---------- CLIENTE AGREGADO ----------");
 		
 	}
 	
@@ -66,7 +72,7 @@ public class ClienteServicio {
 	}
 
 	public void editarDatosCliente(Cliente clienteTemp) {
-		System.out.println("¿Que desea hacer?");
+		System.out.println("Seleccione que desea hacer?");
 	
 		System.out.println("1. Ingrese nuevo rut");
 		

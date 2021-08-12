@@ -1,5 +1,6 @@
 package cl.pkg.PruebaClientes.vista;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class Menu {
 	private String fileName = "Clientes";
 	private String fileName1 = "DBClientes.csv";
 	
-	public void iniciarMenu() {
+	public void iniciarMenu() throws IOException, InterruptedException {
 		System.out.println("---------- SISTEMA CLIENTES ----------");
 		System.out.println("1. Listar Clientes");
 		System.out.println("2. Agregar Clientes");
@@ -39,7 +40,7 @@ public class Menu {
 		seleccionMenu(opcion);
 	}
 
-	private void seleccionMenu(int opcion) {
+	private void seleccionMenu(int opcion) throws IOException, InterruptedException {
 		
 		switch (opcion) {
 		case 1:
@@ -162,13 +163,44 @@ public class Menu {
 			
 	}
 	
-	private void exportarDatos() {
-		// TODO Auto-generated method stub
+	private void exportarDatos() throws IOException {
+		System.out.println("Ingrese la ruta");
+		String ruta = sc.nextLine();
+		
+		System.out.println("Desea exportar el archivo como: ");
+		System.out.println("1. csv");
+		System.out.println("2. txt");
+		System.out.println("0. Salir");
+
+		int opcion = scInt.nextInt();
+		
+		switch (opcion) {
+		case 1:
+			exportadorCsv.exportar(ruta, clienteServicio.getListaClientes());
+			System.out.println("Se ha expotado con éxito");
+			break;
+
+		case 2:
+			exportadorTxt.exportar(ruta, clienteServicio.getListaClientes());
+			System.out.println("Se ha expotado con éxito");
+			break;	
+
+		case 0:
+						
+			break;
+			
+		default:
+			System.out.println("Ingrese un número válido");
+			exportarDatos();
+			break;
+		}
 		
 	}
 	
-	private void terminarPrograma() {
-		// TODO Auto-generated method stub
+	private void terminarPrograma() throws InterruptedException {
+		System.out.println("Saliendo del programa...");
+		Thread.sleep(2000);
+		System.out.println("Programa cerrado correctamente");
 		
 	}
 }
